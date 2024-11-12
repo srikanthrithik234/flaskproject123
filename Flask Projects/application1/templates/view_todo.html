@@ -1,0 +1,32 @@
+{% extends "Navbar.html" %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do List</title>
+</head>
+<body>
+{% block body %}
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                <h3>To-Do List</h3>
+                <a href="{{ url_for('add_todo_item') }}" class="btn btn-primary btn-sm">Add New Task</a>
+            </div>
+            <div class="card-body">
+                <ul class="list-group">
+                    {% for task in tasks %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong>{{ task[1] }}</strong> <br>
+                                <small class="text-muted">Added on {{ task[2] }}</small>
+                            </div>
+                            <a href="{{ url_for('delete_todo_item', id=task[0]) }}" class="btn btn-danger btn-sm">Delete</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,28 @@
+{% extends "Navbar.html" %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Task</title>
+</head>
+<body>
+{% block body %}
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                <h3>Add New Task</h3>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="{{ url_for('add_todo_item') }}">
+                    <div class="form-group">
+                        <label for="task">Task:</label>
+                        <input type="text" class="form-control" name="task" id="task" required>
+                    </div>
+                    <br><br>
+                    <button type="submit" class="btn btn-primary">Add Task</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+</body>
+</html>

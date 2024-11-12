@@ -1,0 +1,22 @@
+{% extends "Navbar.html" %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Posts</title>
+</head>
+<body>
+{% block body %}
+    <h1>Blog Posts</h1>
+    <a href="{{ url_for('add_blog_post') }}">Add New Post</a>
+    <ul>
+        {% for post in posts %}
+            <li>
+                <h2>{{ post[1] }}</h2>
+                <p>{{ post[2] }}</p>
+                <small>Posted on {{ post[3] }}</small>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+</body>
+</html>
